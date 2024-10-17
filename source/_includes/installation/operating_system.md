@@ -277,6 +277,7 @@ If you are running an older Windows version or have a stricter network configura
 - [VirtualBox][vdi] (.vdi)
 {% if page.installation_type == 'linux' %}
 - [KVM][qcow2] (.qcow2)
+- [VMware Workstation][vmdk] (.vmdk)
 {% elsif page.installation_type == 'alternative' %}
 - [KVM/Proxmox][qcow2] (.qcow2)
 - [VMware ESXi/vSphere][Virtual Appliance] (.ova)
@@ -335,6 +336,21 @@ Minimum recommended assignments:
     More details can be found about the command can be found [here](https://www.virtualbox.org/manual/ch08.html#vboxmanage-storageattach).
 
 {% unless page.installation_type == 'macos' %}
+
+- title: VMware Workstation
+  content: |
+    1. Start VMware Workstation and select **Create a New Virtual Machine**.
+       - Note: the exact name and location of the settings below depend on the VMware version. This procedure is based on version 17.
+    2. Select **I will install the operating system later**, then select **Linux** > **Other Linux 5.x kernel 64-bit**.
+    3. Give the VM a name, `home-assistant`, and define an easy to reach storage location, such as `/home/home-assistant`.
+    4. Specify the disk size and select **Store virtual disk as a single file**.
+    5. Select **Customize Hardware**.
+    6. Define the amount of memory and the number of cores the VM is allowed to use.
+    7. Remove the **New CD/DVD** entry. It will not be used.
+    8. Connect an **Ethernet cable** _(WiFi doesn't work, unfortunately)_ and make sure it is connected to your network.
+    9. Under **Network adapter**, select **Bridged: Connected directly to the physical network**.
+       - Make sure **Replicate physical network connection state** is selected.
+    10. At the end of the wizard, select **Finish**.
 
 - title: Unraid
   content: |
